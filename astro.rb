@@ -5,41 +5,45 @@
 class Astro < Formula
   desc "Astrolift CLI — control plane for multi-cloud Kubernetes deployments"
   homepage "https://astrolift.app"
-  version "0.1.3"
+  version "0.2.1"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/calliopeai/astrolift-cli/releases/download/v0.1.3/astro-darwin-amd64.tar.gz"
-      sha256 "c86aaa0c0d9e8bd896c79e9f18177dceec6d164a67f0a7b9989200915920ed7d"
+      url "https://github.com/calliopeai/astrolift-cli/releases/download/v0.2.1/astro-darwin-amd64.tar.gz"
+      sha256 "5db421f31b0eca9b94e3c7101fbf60d2775a55ffb0573cc2c5b34ff432c727f7"
 
       define_method(:install) do
         bin.install "astro"
+        system bin/"astro", "docs", "man", man1
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/calliopeai/astrolift-cli/releases/download/v0.1.3/astro-darwin-arm64.tar.gz"
-      sha256 "3770b36a5eda8ddc7d59f073608d6f9dc70fbdedf0b34e90077466b513855981"
+      url "https://github.com/calliopeai/astrolift-cli/releases/download/v0.2.1/astro-darwin-arm64.tar.gz"
+      sha256 "9155fbbc441820752acd5778171218151c27730277ff2efb24cf53e23d2345d5"
 
       define_method(:install) do
         bin.install "astro"
+        system bin/"astro", "docs", "man", man1
       end
     end
   end
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/calliopeai/astrolift-cli/releases/download/v0.1.3/astro-linux-amd64.tar.gz"
-      sha256 "5d65e0ef3e2d0c7963aff3abcfaf4bc5b96de11c3e1da7544119a956bcb45bcc"
+      url "https://github.com/calliopeai/astrolift-cli/releases/download/v0.2.1/astro-linux-amd64.tar.gz"
+      sha256 "97975d62a48202d6d076e83e353fa95e7ea25e1fd0f3631c7cc1e2f560c76a17"
       define_method(:install) do
         bin.install "astro"
+        system bin/"astro", "docs", "man", man1
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/calliopeai/astrolift-cli/releases/download/v0.1.3/astro-linux-arm64.tar.gz"
-      sha256 "64249ca5167b9dd8b62f517e62f9914628d3bd2a48832136f5814f6ffb87a4fc"
+      url "https://github.com/calliopeai/astrolift-cli/releases/download/v0.2.1/astro-linux-arm64.tar.gz"
+      sha256 "0db968b46f56e33fce9e44f902e6f545ed2200b235db21d8d69499916cef0cc2"
       define_method(:install) do
         bin.install "astro"
+        system bin/"astro", "docs", "man", man1
       end
     end
   end
